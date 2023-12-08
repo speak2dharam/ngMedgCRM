@@ -1,0 +1,57 @@
+<div *ngIf="selectedEnquiry!" class="bg-light border-bottom d-flex-inline enqtopCtrls px-2">
+    <a href=""><i class="icofont-star"></i> <span>Mark Important</span></a>
+    <a href=""><i class="icofont-ui-delete"></i> <span>Delete</span></a>
+    <a href=""><i class="icofont-paper-plane"></i> <span>Resend</span></a>
+</div>
+<div *ngIf="selectedEnquiry!">
+    <div class="py-1 px-3 bg-info bg-opacity-25">
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <h6 class="fs-5 mb-0">{{ SingleEnq.pageUrl }} / {{ SingleEnq.pageName }}</h6>
+            </div>
+            <div class="col-auto">
+                <h6 class="display-6 fs-5 mb-0"><i class="icofont-wall-clock"></i> {{ SingleEnq.addedOn | date:'dd/MM/yy'}}</h6>
+            </div>
+        </div>
+    </div>
+    <div class="px-2">
+        <table class="table">
+            <tr class="">
+                <th class="text-end py-2 pe-2">Patient Name</th>
+                <td>{{ SingleEnq.inquisitorFullName }}</td>
+            </tr>
+            <tr>
+                <th class="text-end py-2 pe-2">EmailId</th>
+                <td>{{ SingleEnq.emailId }}</td>
+            </tr>
+            <tr>
+                <th class="text-end py-2 pe-2">Country Code/Phone</th>
+                <td>{{ SingleEnq.countryCode }} / {{ SingleEnq.phone }}</td>
+            </tr>
+            <tr>
+                <th class="text-end py-2 pe-2">Age</th>
+                <td>{{ SingleEnq.age }}</td>
+            </tr>
+            <tr>
+                <th class="text-end py-2 pe-2">Gender</th>
+                <td>{{ SingleEnq.gender }}</td>
+            </tr>
+            <tr>
+                <th class="text-end py-2 pe-2">Nationality</th>
+                <td>{{ SingleEnq.nationality }}</td>
+            </tr>
+            <tr>
+                <th class="text-end py-2 pe-2">Country</th>
+                <td>{{ SingleEnq.country }}</td>
+            </tr>
+            <tr>
+                <th class="text-end py-2 pe-2">TreatmentName</th>
+                <td>{{ SingleEnq.treatmentName }}</td>
+            </tr>
+            <tr>
+                <th class="text-end py-2 pe-2">Medical Concerns</th>
+                <td>{{ SingleEnq.medicalConcerns }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

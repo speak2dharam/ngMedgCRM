@@ -1,0 +1,30 @@
+<div class="border-bottom py-2">
+    <div class="container-fluid">
+        <div class="row g-2 align-items-center justify-content-between">
+            <div class="col-auto">
+                <h6 class="mb-0">Enquiries</h6>
+            </div>
+            <div class="col-auto">
+                <a routerLink="/admin/dashboard" class="btn btn-outline-secondary btn-sm">
+                    Back to home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="">
+        <div class="row gx-0">
+            <div class="col-md-4 bg-light">
+                <app-enquiry-list></app-enquiry-list>
+                
+            </div>
+            <div class="col-md msgBox">
+                <div class="position-relative">
+                    <app-enquiry-single></app-enquiry-single>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
