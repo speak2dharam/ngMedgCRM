@@ -27,9 +27,10 @@ jobs:
     - name: Deploy to Shared Hosting
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: ${{ secrets.162.215.230.4 }}
-        username: ${{ secrets.FTPforGITHUB }}
-        password: ${{ secrets.Kejariwal@123 }}
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/ng-medg-crm  # Replace 'your-project-name' with your actual project name
         server-dir: /   # Replace this with the remote folder path
+        
     # Add further steps for testing, notifications, etc.
