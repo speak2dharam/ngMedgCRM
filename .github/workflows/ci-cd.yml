@@ -30,7 +30,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/ng-medg-crm  # Replace 'your-project-name' with your actual project name
+        local-dir: ./dist/ng-medg-crm/  # Replace 'your-project-name' with your actual project name
         server-dir: /test/   # Replace this with the remote folder path
         
     # Add further steps for testing, notifications, etc.
