@@ -23,5 +23,13 @@ jobs:
 
     - name: Build Angular app
       run: npm run build -- --configuration=production
+      
+    - name: Deploy to hosting service
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist/ng-medg-crm # Change 'your-project-name' to your actual project name
+        publish_branch: gh-pages
+        # cname: your-custom-domain.com # Optional: Add a custom domain if needed
 
-    # Add further steps for testing, deploying, etc.
+    # Add further steps for testing, notifications, etc.
