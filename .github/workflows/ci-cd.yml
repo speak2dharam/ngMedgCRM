@@ -1,26 +1,49 @@
-name: CI/CD for Angular App
+name: CI/CD Pipeline for Angular App
 
 on:
   push:
-    branches:
-      - main
+    branches: main
+  pull_request:
+    branches: main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Use Node LTS
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        run: npm install
+      - name: Lint code
+        run: npm run lint
+      - name: Build Angular application
+        run: npm run build --prod
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist/
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    environment:
+      name: production
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+      - name: Deploy to [environment name]
+        # Replace this step with your deployment script
+        # This could be deploying to a static hosting platform, server, etc.
+        # Example: scp -r dist/* [username]@[server_address]:/path/to/deployment/directory
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build Angular app
-      run: ng build
-
-    # Add further steps for testing, deploying, etc.
